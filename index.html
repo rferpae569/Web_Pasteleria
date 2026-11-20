@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pastelería FDZ | El Arte de la Repostería Artesanal</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./js/tailwind.config.js"></script>
+    <!-- Google Fonts: Playfair Display (Serif elegante) & Plus Jakarta Sans (Sans-serif limpia) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-cream-50 text-cocoa-900 font-sans antialiased selection:bg-gold-400/30 selection:text-cocoa-900">
+
+    <!-- 1. BARRA DE NAVEGACIÓN SUPERIOR (NAVBAR) -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-cream-50/95 backdrop-blur-md border-b border-cream-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="#inicio" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-full bg-cocoa-900 text-cream-50 flex items-center justify-center font-serif font-bold text-lg tracking-wider border border-gold-500/40 group-hover:bg-cocoa-800 transition-colors">
+                        FDZ
+                    </div>
+                    <div>
+                        <span class="font-serif text-xl sm:text-2xl font-bold tracking-tight text-cocoa-900 block leading-none">Pastelería FDZ</span>
+                        <span class="text-[10px] uppercase tracking-[0.25em] text-gold-600 font-medium block mt-0.5">Obrador Artesanal</span>
+                    </div>
+                </a>
+
+                <!-- Enlaces de Navegación (Desktop) -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#inicio" class="text-sm font-medium text-cocoa-800 hover:text-gold-600 transition-colors">Inicio</a>
+                    <a href="#especialidades" class="text-sm font-medium text-cocoa-800 hover:text-gold-600 transition-colors">Especialidades</a>
+                    <a href="#historia" class="text-sm font-medium text-cocoa-800 hover:text-gold-600 transition-colors">Sobre Nosotros</a>
+                    <a href="#contacto" class="text-sm font-medium text-cocoa-800 hover:text-gold-600 transition-colors">Contacto</a>
+                </nav>
+
+                <!-- Acciones: Carrito & Menú Móvil -->
+                <div class="flex items-center gap-3">
+                    <button onclick="toggleCartDrawer()" class="relative inline-flex items-center gap-2 bg-cocoa-900 hover:bg-cocoa-800 text-cream-50 px-4 py-2.5 rounded-full text-sm font-medium transition-all shadow-sm hover:shadow cursor-pointer" aria-label="Abrir cesta de pedido">
+                        <i data-lucide="shopping-bag" class="w-4 h-4 text-gold-400"></i>
+                        <span class="hidden sm:inline">Hacer Pedido</span>
+                        <span id="cart-badge" class="bg-gold-500 text-cocoa-900 font-bold text-xs w-5 h-5 rounded-full flex items-center justify-center">0</span>
+                    </button>
+
+                    <!-- Botón Hamburguesa Móvil -->
+                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden p-2.5 rounded-xl text-cocoa-900 hover:bg-cream-200/60 transition-colors" aria-label="Menú principal">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menú Desplegable Móvil -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cream-50 border-b border-cream-200 px-4 pt-2 pb-6 space-y-2 shadow-lg">
+            <a href="#inicio" onclick="toggleMobileMenu()" class="block px-4 py-3 rounded-xl text-base font-medium text-cocoa-900 hover:bg-cream-100">Inicio</a>
+            <a href="#especialidades" onclick="toggleMobileMenu()" class="block px-4 py-3 rounded-xl text-base font-medium text-cocoa-900 hover:bg-cream-100">Especialidades</a>
+            <a href="#historia" onclick="toggleMobileMenu()" class="block px-4 py-3 rounded-xl text-base font-medium text-cocoa-900 hover:bg-cream-100">Sobre Nosotros</a>
+            <a href="#encargos" onclick="toggleMobileMenu()" class="block px-4 py-3 rounded-xl text-base font-medium text-cocoa-900 hover:bg-cream-100">Pedidos y Eventos</a>
+            <a href="#contacto" onclick="toggleMobileMenu()" class="block px-4 py-3 rounded-xl text-base font-medium text-cocoa-900 hover:bg-cream-100">Contacto</a>
+        </div>
+    </header>
+
+    <!-- 2. HERO SECTION -->
+    <section id="inicio" class="relative pt-28 pb-16 lg:pt-36 lg:pb-24 overflow-hidden bg-gradient-to-b from-cream-100 via-cream-50 to-cream-50">
+        <!-- Elemento decorativo sutil -->
+        <div class="absolute top-0 right-0 -translate-y-12 translate-x-1/4 w-96 h-96 bg-gold-400/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 translate-y-12 -translate-x-1/4 w-80 h-80 bg-cocoa-700/5 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Texto Principal -->
+                <div class="lg:col-span-6 text-center lg:text-left space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cream-200/70 border border-cream-300 text-cocoa-800 text-xs font-semibold uppercase tracking-widest">
+                        <i data-lucide="sparkles" class="w-3.5 h-3.5 text-gold-600"></i>
+                        <span>Horneado diario en nuestro obrador</span>
+                    </div>
+                    
+                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-cocoa-900 leading-[1.15]">
+                        El arte de la <span class="italic font-normal text-gold-600">repostería artesanal</span>
+                    </h1>
+                    
+                    <p class="text-base sm:text-lg text-cocoa-700 max-w-xl mx-auto lg:mx-0 leading-relaxed font-normal">
+                        En Pastelería FDZ fusionamos recetas tradicionales con alta pastelería contemporánea. Seleccionamos mantequilla pura, cacao de origen y frutas de temporada para crear bocados inolvidables.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#especialidades" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-cocoa-900 hover:bg-cocoa-800 text-cream-50 px-7 py-4 rounded-full text-sm font-semibold tracking-wide transition-all shadow-md hover:shadow-lg">
+                            <span>Ver Especialidades</span>
+                            <i data-lucide="arrow-down-right" class="w-4 h-4 text-gold-400"></i>
+                        </a>
+                    </div>
+
+                    <!-- Sellos de Garantía -->
+                    <div class="pt-6 border-t border-cream-200 grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0 text-center lg:text-left">
+                        <div>
+                            <p class="font-serif text-xl font-bold text-cocoa-900">100%</p>
+                            <p class="text-xs text-cocoa-700">Ingredientes naturales</p>
+                        </div>
+                        <div>
+                            <p class="font-serif text-xl font-bold text-cocoa-900">Masa Madre</p>
+                            <p class="text-xs text-cocoa-700">Fermentación lenta 48h</p>
+                        </div>
+                        <div>
+                            <p class="font-serif text-xl font-bold text-cocoa-900">A Medida</p>
+                            <p class="text-xs text-cocoa-700">Diseño para eventos</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Composición Visual Elegante -->
+                <div class="lg:col-span-6 relative">
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-[4/3] sm:aspect-[16/11] lg:aspect-[4/4]">
+                        <img 
+                            src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1000&q=80" 
+                            alt="Tarta artesanal de chocolate y frutos rojos de Pastelería FDZ" 
+                            onerror="this.src='https://placehold.co/800x800/422B20/FDFBF7?text=Pasteleria+FDZ'"
+                            class="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700"
+                        >
+                        <div class="absolute inset-0 bg-gradient-to-t from-cocoa-900/50 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-5 left-5 right-5 bg-cream-50/95 backdrop-blur-md p-4 rounded-2xl border border-cream-200 flex items-center justify-between shadow-lg">
+                            <div>
+                                <span class="text-[11px] font-semibold uppercase tracking-wider text-gold-600">Creación de la semana</span>
+                                <h3 class="font-serif font-bold text-cocoa-900 text-base sm:text-lg">Tarta Suprema de Cacao 70% & Avellana</h3>
+                            </div>
+                            <button onclick="addToCart(1)" class="bg-cocoa-900 hover:bg-gold-600 text-cream-50 p-3 rounded-xl transition-colors cursor-pointer" title="Añadir al pedido">
+                                <i data-lucide="plus" class="w-5 h-5"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. SECCIÓN: NUESTRAS ESPECIALIDADES (CON FILTROS Y CARRITO) -->
+    <section id="especialidades" class="py-20 bg-cream-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Encabezado de Sección -->
+            <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
+                <span class="text-xs font-bold uppercase tracking-[0.2em] text-gold-600">Vitrina del Obrador</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-cocoa-900">Nuestras Especialidades</h2>
+                <p class="text-cocoa-700 text-sm sm:text-base">
+                    Elaboradas cada madrugada con técnicas clásicas y respeto absoluto por el producto. Selecciona tus favoritos para preparar tu pedido o reserva en tienda.
+                </p>
+            </div>
+
+            <!-- Barra de Filtros por Categoría -->
+            <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-12" id="category-filters">
+                <button onclick="filterProducts('all')" data-filter="all" class="filter-btn active px-5 py-2.5 rounded-full text-sm font-medium transition-all bg-cocoa-900 text-cream-50 shadow-sm cursor-pointer">
+                    Todo
+                </button>
+                <button onclick="filterProducts('tartas')" data-filter="tartas" class="filter-btn px-5 py-2.5 rounded-full text-sm font-medium transition-all bg-white text-cocoa-800 border border-cream-300 hover:border-cocoa-700 cursor-pointer">
+                    Tartas
+                </button>
+                <button onclick="filterProducts('bolleria')" data-filter="bolleria" class="filter-btn px-5 py-2.5 rounded-full text-sm font-medium transition-all bg-white text-cocoa-800 border border-cream-300 hover:border-cocoa-700 cursor-pointer">
+                    Bollería
+                </button>
+                <button onclick="filterProducts('dulces')" data-filter="dulces" class="filter-btn px-5 py-2.5 rounded-full text-sm font-medium transition-all bg-white text-cocoa-800 border border-cream-300 hover:border-cocoa-700 cursor-pointer">
+                    Dulces finos
+                </button>
+            </div>
+
+            <!-- Cuadrícula de Productos -->
+            <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Renderizado dinámicamente mediante JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. SECCIÓN: NUESTRA HISTORIA / FILOSOFÍA -->
+    <section id="historia" class="py-20 bg-cream-100 border-y border-cream-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Galería Artesanal -->
+                <div class="lg:col-span-6 grid grid-cols-2 gap-4">
+                    <div class="space-y-4">
+                        <img 
+                            src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80" 
+                            alt="Amasado artesanal en Pastelería FDZ"
+                            onerror="this.src='https://placehold.co/500x600/E6D5BC/2C1B12?text=Obrador+FDZ'"
+                            class="w-full h-64 sm:h-72 object-cover rounded-2xl shadow-md"
+                        >
+                        <div class="bg-cocoa-900 text-cream-50 p-6 rounded-2xl">
+                            <p class="font-serif italic text-lg text-gold-400 mb-1">"El tiempo es nuestro ingrediente secreto."</p>
+                            <p class="text-xs text-cream-200">— Maestro Pastelero, Familia FDZ</p>
+                        </div>
+                    </div>
+                    <div class="pt-8">
+                        <img 
+                            src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=600&q=80" 
+                            alt="Croissants recién horneados"
+                            onerror="this.src='https://placehold.co/500x700/5C4033/FDFBF7?text=Recien+Horneado'"
+                            class="w-full h-80 sm:h-96 object-cover rounded-2xl shadow-md"
+                        >
+                    </div>
+                </div>
+
+                <!-- Narrativa y Valores -->
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-xs font-bold uppercase tracking-[0.2em] text-gold-600">Nuestra Filosofía</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-cocoa-900 leading-tight">
+                        Tradición familiar, materias primas nobles y amor por el detalle
+                    </h2>
+                    <p class="text-cocoa-700 leading-relaxed">
+                        <strong>Pastelería FDZ</strong> nació con una premisa sencilla: recuperar el sabor auténtico de la repostería hecha sin prisas. Cada mañana, antes del amanecer, encendemos nuestros hornos para trabajar mantequillas de pastoreo, vainilla natural de Madagascar, huevos camperos y chocolates de comercio justo.
+                    </p>
+                    <p class="text-cocoa-700 leading-relaxed">
+                        Rechazamos las premezclas industriales y los aromas artificiales. Creemos que un buen pastel debe emocionar desde el primer aroma hasta la última miga.
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                        <div class="flex items-start gap-3 bg-cream-50 p-4 rounded-2xl border border-cream-200">
+                            <div class="p-2.5 bg-gold-500/15 text-gold-600 rounded-xl shrink-0">
+                                <i data-lucide="wheat" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-serif font-bold text-cocoa-900 text-sm">Harinas Seleccionadas</h4>
+                                <p class="text-xs text-cocoa-700 mt-1">Molidas a piedra para conservar todo su aroma y textura.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 bg-cream-50 p-4 rounded-2xl border border-cream-200">
+                            <div class="p-2.5 bg-gold-500/15 text-gold-600 rounded-xl shrink-0">
+                                <i data-lucide="heart-handshake" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-serif font-bold text-cocoa-900 text-sm">Producción Limitada</h4>
+                                <p class="text-xs text-cocoa-700 mt-1">Horneamos lotes pequeños para garantizar frescura absoluta.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. SECCIÓN: TESTIMONIOS DE CLIENTES -->
+    <section class="py-16 bg-cream-100/70 border-t border-cream-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-xl mx-auto mb-12">
+                <span class="text-xs font-bold uppercase tracking-[0.2em] text-gold-600">Opiniones Reales</span>
+                <h2 class="font-serif text-3xl font-bold text-cocoa-900 mt-2">Lo que dicen nuestros clientes</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Testimonio 1 -->
+                <div class="bg-white p-7 rounded-2xl border border-cream-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-gold-500 mb-4 gap-1">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-cocoa-700 text-sm italic leading-relaxed">
+                            "Encargamos la tarta de chocolate belga y avellana para el cumpleaños de mi madre y fue un éxito absoluto. Se nota la calidad de la materia prima, nada empalagosa."
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-cream-100 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-cream-200 text-cocoa-900 font-serif font-bold flex items-center justify-center">CM</div>
+                        <div>
+                            <p class="text-sm font-bold text-cocoa-900">Carmen Morales</p>
+                            <p class="text-xs text-cocoa-700">Clienta habitual</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonio 2 -->
+                <div class="bg-white p-7 rounded-2xl border border-cream-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-gold-500 mb-4 gap-1">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-cocoa-700 text-sm italic leading-relaxed">
+                            "Los croissants de mantequilla francesa son de otro planeta: crujientes por fuera y alveolados por dentro. Desayunar en Pastelería FDZ es mi ritual favorito de los sábados."
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-cream-100 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-cream-200 text-cocoa-900 font-serif font-bold flex items-center justify-center">AR</div>
+                        <div>
+                            <p class="text-sm font-bold text-cocoa-900">Alejandro Ruiz</p>
+                            <p class="text-xs text-cocoa-700">Amante de la bollería</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonio 3 -->
+                <div class="bg-white p-7 rounded-2xl border border-cream-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-gold-500 mb-4 gap-1">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-cocoa-700 text-sm italic leading-relaxed">
+                            "Compramos varios pasteles desde la pagina web y es super comodo. La entrega fue puntual y los pasteles llegaron intactos. ¡Repetiremos seguro!"
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-cream-100 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-cream-200 text-cocoa-900 font-serif font-bold flex items-center justify-center">LS</div>
+                        <div>
+                            <p class="text-sm font-bold text-cocoa-900">Laura & Sergio</p>
+                            <p class="text-xs text-cocoa-700">Pedido por internet</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. FOOTER COMPLETO -->
+    <footer id="contacto" class="bg-cocoa-900 text-cream-100 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-cocoa-800">
+                <!-- Columna 1: Marca -->
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-gold-500 text-cocoa-900 flex items-center justify-center font-serif font-bold text-lg">
+                            FDZ
+                        </div>
+                        <span class="font-serif text-2xl font-bold text-cream-50">Pastelería FDZ</span>
+                    </div>
+                    <p class="text-sm text-cream-300 leading-relaxed">
+                        Alta repostería artesanal horneada cada día con pasión, respeto por la tradición y los mejores ingredientes naturales.
+                    </p>
+                </div>
+
+                <!-- Columna 2: Enlaces Rápidos -->
+                <div>
+                    <h4 class="font-serif text-lg font-bold text-cream-50 mb-4">Explorar</h4>
+                    <ul class="space-y-2.5 text-sm text-cream-300">
+                        <li><a href="#inicio" class="hover:text-gold-400 transition-colors">Inicio</a></li>
+                        <li><a href="#especialidades" class="hover:text-gold-400 transition-colors">Nuestras Especialidades</a></li>
+                        <li><a href="#historia" class="hover:text-gold-400 transition-colors">Sobre el Obrador</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Horarios -->
+                <div>
+                    <h4 class="font-serif text-lg font-bold text-cream-50 mb-4">Horario de Obrador</h4>
+                    <ul class="space-y-2.5 text-sm text-cream-300">
+                        <li class="flex justify-between">
+                            <span>Martes a Viernes:</span>
+                            <span class="text-cream-50 font-medium">08:30 – 20:30</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Sábados:</span>
+                            <span class="text-cream-50 font-medium">09:00 – 21:00</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Domingos y Festivos:</span>
+                            <span class="text-cream-50 font-medium">09:00 – 15:00</span>
+                        </li>
+                        <li class="flex justify-between text-gold-400 pt-1">
+                            <span>Lunes:</span>
+                            <span>Cerrado por descanso</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Columna 4: Ubicación y Contacto -->
+                <div>
+                    <h4 class="font-serif text-lg font-bold text-cream-50 mb-4">Visítanos</h4>
+                    <ul class="space-y-3 text-sm text-cream-300">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-gold-400 shrink-0 mt-1"></i>
+                            <span>Calle Inventada, 48<br>41004 Sevilla, España</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="phone" class="w-4 h-4 text-gold-400 shrink-0"></i>
+                            <a href="tel:+34954001122" class="hover:text-gold-400 transition-colors">+34 123 456 789</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="mail" class="w-4 h-4 text-gold-400 shrink-0"></i>
+                            <a href="mailto:pedidos@pasteleriafdz.es" class="hover:text-gold-400 transition-colors">correoinventado@pasteleriafdz.es</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-cream-300/70">
+                <p>&copy; 2026 Pastelería FDZ. Todos los derechos reservados.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-cream-100">Aviso Legal</a>
+                    <a href="#" class="hover:text-cream-100">Política de Privacidad</a>
+                    <a href="#" class="hover:text-cream-100">Alérgenos</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===================================================================== -->
+    <!-- DRAWER LATERAL DEL CARRITO / PEDIDO RÁPIDO                            -->
+    <!-- ===================================================================== -->
+    <div id="cart-overlay" onclick="toggleCartDrawer()" class="fixed inset-0 bg-cocoa-900/60 backdrop-blur-xs z-50 hidden transition-opacity"></div>
+    
+    <aside id="cart-drawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-cream-50 z-50 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col">
+        <!-- Cabecera Drawer -->
+        <div class="p-6 border-b border-cream-200 flex items-center justify-between bg-white">
+            <div class="flex items-center gap-2.5">
+                <i data-lucide="shopping-bag" class="w-5 h-5 text-gold-600"></i>
+                <h3 class="font-serif text-xl font-bold text-cocoa-900">Tu Selección FDZ</h3>
+            </div>
+            <button onclick="toggleCartDrawer()" class="p-2 rounded-full hover:bg-cream-100 text-cocoa-700 cursor-pointer" aria-label="Cerrar cesta">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+        </div>
+
+        <!-- Lista de Productos en Carrito -->
+        <div id="cart-items-container" class="flex-1 overflow-y-auto p-6 space-y-4">
+            <!-- Dinámico -->
+        </div>
+
+        <!-- Resumen y Formulario Rápido de Checkout -->
+        <div id="cart-footer" class="p-6 border-t border-cream-200 bg-white space-y-4">
+            <div class="flex justify-between items-center text-base">
+                <span class="text-cocoa-700 font-medium">Total estimado</span>
+                <span id="cart-total" class="font-serif text-2xl font-bold text-cocoa-900">0,00 €</span>
+            </div>
+            <p class="text-xs text-cocoa-700">
+                * Los pedidos se preparan frescos para recogida en obrador (Calle inventada, 48).
+            </p>
+            <form onsubmit="submitOrder(event)" class="space-y-3 pt-1">
+                <input type="text" id="order-name" required placeholder="Tu nombre completo" class="w-full px-4 py-2.5 rounded-xl bg-cream-50 border border-cream-300 text-sm focus:outline-none focus:border-gold-600">
+                <div class="grid grid-cols-2 gap-2">
+                    <input type="tel" id="order-phone" required placeholder="Teléfono" class="w-full px-4 py-2.5 rounded-xl bg-cream-50 border border-cream-300 text-sm focus:outline-none focus:border-gold-600">
+                    <input type="date" id="order-date" required class="w-full px-4 py-2.5 rounded-xl bg-cream-50 border border-cream-300 text-sm focus:outline-none focus:border-gold-600">
+                </div>
+                <button type="submit" id="checkout-btn" class="w-full bg-cocoa-900 hover:bg-cocoa-800 disabled:opacity-40 text-cream-50 font-semibold py-3.5 rounded-full text-sm transition-all shadow-md cursor-pointer">
+                    Confirmar Reserva de Pedido
+                </button>
+            </form>
+        </div>
+    </aside>
+
+   <!-- Scripts -->
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
